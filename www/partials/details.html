@@ -1,0 +1,11 @@
+<section class ="detail-info">
+  <div class="details" ng-model="events">
+    <a href="#/details/{{prevItem}}" class="btn btn-default">Previous</a>
+    <a href="#/details/{{nextItem}}" class="btn btn-default">Next </a>
+    <h1>{{events[whichItem].title}}</h1>
+    <dv class="info">
+      <h3>{{events[whichItem].era}}</h3>
+      <img ng-src="images/{{events[whichItem].title}}_tn.jpg" alt="Photo of {{events[whichItem].title}}">
+  </div>
+  <a href="#/chap2">&laquo; Back </a>
+</section>

@@ -1,0 +1,12 @@
+<section class="timelinepage">
+  <ul class="timelinelist">
+    <li class="chap-each chapscroll hideme" ng-repeat="item in events | filter: query | orderBy: date">
+
+        <h2>{{item.title}}</h2>
+        <h3>{{item.era}}</h3>
+        <h3>{{item.description}}</h3>
+        <img class="time-img" ng-src="img/full/{{events[whichItem].paragraph}}.jpg" alt="Photo of {{events[whichItem].title}}">
+        <a href="#/details/{{events.indexOf(item)}}"> <button>See More</button></a>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,765 @@
+@charset "UTF-8";
+html, body {
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: hidden; }
+
+a {
+  text-decoration: none; }
+
+.hori-scroll {
+  height: 100vh;
+  border: 2px solid;
+  margin: 30px;
+  padding: 30px;
+  display: inline-block; }
+
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'contentFont';
+  src: local("contentFont.otf"), url("../../source/font/contentFont.otf");
+  src: local("contentFont.ttf"), url("../../source/font/contentFont.ttf") format("truetype");
+  /* Safari, Android, iOS */ }
+
+@font-face {
+  font-family: 'titleFont';
+  src: local("titleFont.ttf"), url("../../source/font/titleFont.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'lightFont';
+  src: local("lightFont.ttf"), url("../../source/font/lightFont.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'fontAwesome';
+  src: local("fontAwesome.otf"), url("../../source/font/fontAwesome.otf"); }
+
+h1, h2, h3, h4, h5 {
+  font-family: titleFont, 魏碑,Helvetica, Arial, sans-serif; }
+
+p {
+  font-family: contentFont，魏碑,Helvetica, Arial, sans-serif; }
+
+/* all chapters introduction page */
+.intro {
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 50%;
+  min-height: 50%;
+  text-align: center;
+  line-height: 2.0em;
+  position: fixed;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%); }
+
+button, btn {
+  border: solid 1px #F28500;
+  padding: 5px;
+  min-height: 50px;
+  min-width: 90px;
+  border-radius: 1px;
+  background-clip: content-box;
+  background-color: #F28500;
+  line-height: 1;
+  font-size: 20px;
+  color: #050505;
+  text-indent: 0.5rem;
+  text-decoration: none; }
+
+.intro-text {
+  padding: 30px 30px 0 30px;
+  max-width: 600px;
+  color: white; }
+
+.line {
+  margin-top: 20%;
+  opacity: 0;
+  overflow: hidden;
+  height: 20px; }
+
+.logo {
+  background: url(img/logo/logos-04.svg) no-repeat top left;
+  background-size: contain;
+  width: 300px;
+  height: 150px; }
+
+.logo-property {
+  opacity: 0.9;
+  -webkit-filter: drop-shadow(10px 10px 10px #222);
+  filter: drop-shadow(10px 10px 10px #222); }
+
+.no-svg .main-header {
+  background-image: url(img/logo/logos-04.svg.png); }
+
+.scrollable {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.scrollable-content {
+  box-sizing: border-box;
+  min-height: 100%; }
+
+/* Enable the Classes below to have scrollbars not overlap the content */
+/*
+.scrollable-content.scrollable-right {
+    margin-right: 15px;
+}
+
+.scrollable-content.scrollable-top {
+    margin-top: 15px;
+}
+
+.scrollable-content.scrollable-left {
+    margin-left: 15px;
+}
+
+.scrollable-content.scrollable-bottom {
+    margin-bottom: 15px;
+}
+*/
+/* if any element is fixed and displayed at full window size, this rule becomes handy */
+.fullwindow .scrollable-content {
+  transform: none !important; }
+
+.scrollable .scrollable-content,
+.scrollable .scrollable-slider {
+  -webkit-transition: background-color .2s linear, opacity .2s linear, -webkit-transform .2s ease-out;
+  -moz-transition: background-color .2s linear, opacity .2s linear, -moz-transform .2s ease-out;
+  -ms-transition: background-color .2s linear, opacity .2s linear, -ms-transform .2s ease-out;
+  -o-transition: background-color .2s linear, opacity .2s linear, -o-transform .2s ease-out;
+  transition: background-color .2s linear, opacity .2s linear, transform .2s ease-out; }
+
+.scrollable.active .scrollable-content,
+.scrollable.active .scrollable-slider {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none; }
+
+.scrollable .scrollable-bar {
+  position: absolute;
+  box-sizing: border-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  opacity: 0;
+  background-color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid transparent; }
+
+.scrollable:hover .scrollable-bar {
+  opacity: 0.6; }
+
+.scrollable .scrollable-bar:hover {
+  opacity: 1; }
+
+.scrollable.active .scrollable-bar {
+  opacity: 1; }
+
+.scrollable .scrollable-slider {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #ccc;
+  background-image: linear-gradient(to right, #ccc, #ddd);
+  border: 1px solid #333;
+  border: 1px solid rgba(0, 0, 0, 0.5); }
+
+.scrollable .scrollable-bar-x .scrollable-slider {
+  height: 8px; }
+
+.scrollable .scrollable-bar-y .scrollable-slider {
+  width: 8px; }
+
+.timeline-each {
+  height: 100vh;
+  width: 300px; }
+
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(polina.jpg) no-repeat;
+  background-size: cover;
+  opacity: 1; }
+
+.timeline-each {
+  width: 300px; }
+
+.time-img {
+  max-width: 100%;
+  height: auto; }
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem;
+  font-family: "Fira Sans", sans-serif;
+  color: #383838;
+  background-color: #f8f8f8; }
+
+a {
+  color: #7b9d6f;
+  text-decoration: none; }
+
+/* --------------------------------
+
+Main Components
+
+-------------------------------- */
+.cd-horizontal-timeeeeline {
+  opacity: 0;
+  margin: 2em auto;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  transition: opacity 0.2s; }
+
+.cd-horizontal-timeeeeline::before {
+  /* never visible - this is used in jQuery to check the current MQ */
+  content: 'mobile';
+  display: none; }
+
+.cd-horizontal-timeeeeline.loaded {
+  /* show the timeline after events position has been set (using JavaScript) */
+  opacity: 1; }
+
+.cd-horizontal-timeeeeline .timeline {
+  position: relative;
+  height: 100px;
+  width: 110%;
+  max-width: 90VW;
+  margin: 0 auto; }
+
+.cd-horizontal-timeeeeline .events-wrapper {
+  position: relative;
+  height: 100%;
+  margin: 0 0px;
+  overflow: hidden; }
+
+.cd-horizontal-timeeeeline .events-wrapper::after, .cd-horizontal-timeeeeline .events-wrapper::before {
+  /* these are used to create a shadow effect at the sides of the timeline */
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 100%;
+  width: 20px; }
+
+.cd-horizontal-timeeeeline .events-wrapper::before {
+  left: 0;
+  background-image: -webkit-linear-gradient(left, #f8f8f8, rgba(248, 248, 248, 0));
+  background-image: linear-gradient(to right, #f8f8f8, rgba(248, 248, 248, 0)); }
+
+.cd-horizontal-timeeeeline .events-wrapper::after {
+  right: 0;
+  background-image: -webkit-linear-gradient(right, #f8f8f8, rgba(248, 248, 248, 0));
+  background-image: linear-gradient(to left, #f8f8f8, rgba(248, 248, 248, 0)); }
+
+.cd-horizontal-timeeeeline .events {
+  /* this is the grey line/timeline */
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 49px;
+  height: 2px;
+  /* width will be set using JavaScript */
+  background: #dfdfdf;
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  transition: transform 0.4s; }
+
+.cd-horizontal-timeeeeline .filling-line {
+  /* this is used to create the green line filling the timeline */
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #7b9d6f;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s; }
+
+.cd-horizontal-timeeeeline .events a {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  text-align: center;
+  font-size: 1.3rem;
+  padding-bottom: 15px;
+  color: #383838;
+  /* fix bug on Safari - text flickering while timeline translates */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0); }
+
+.cd-horizontal-timeeeeline .events a::after {
+  /* this is used to create the event spot */
+  content: '';
+  position: absolute;
+  left: 50%;
+  right: auto;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: -5px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 2px solid #dfdfdf;
+  background-color: #f8f8f8;
+  -webkit-transition: background-color 0.3s, border-color 0.3s;
+  -moz-transition: background-color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s; }
+
+.no-touch .cd-horizontal-timeeeeline .events a:hover::after {
+  background-color: #7b9d6f;
+  border-color: #7b9d6f; }
+
+.cd-horizontal-timeeeeline .events a.selected {
+  pointer-events: none; }
+
+.cd-horizontal-timeeeeline .events a.selected::after {
+  background-color: #7b9d6f;
+  border-color: #7b9d6f; }
+
+.cd-horizontal-timeeeeline .events a.older-event::after {
+  border-color: #7b9d6f; }
+
+@media only screen and (min-width: 1100px) {
+  .cd-horizontal-timeeeeline {
+    margin: 6em auto; }
+  .cd-horizontal-timeeeeline::before {
+    /* never visible - this is used in jQuery to check the current MQ */
+    content: 'desktop'; } }
+
+.cd-timeline-navigation a {
+  /* these are the left/right arrows to navigate the timeline */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  border: 2px solid #dfdfdf;
+  /* replace text with an icon */
+  overflow: hidden;
+  color: transparent;
+  text-indent: 100%;
+  white-space: nowrap;
+  -webkit-transition: border-color 0.3s;
+  -moz-transition: border-color 0.3s;
+  transition: border-color 0.3s; }
+
+.cd-timeline-navigation a::after {
+  /*icons */
+  content: '';
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(../../img/logo/cd-arrow.svg) no-repeat 0 0; }
+
+.cd-timeline-navigation a.prev {
+  left: 0;
+  -webkit-transform: translateY(-50%) rotate(180deg);
+  -moz-transform: translateY(-50%) rotate(180deg);
+  -ms-transform: translateY(-50%) rotate(180deg);
+  -o-transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg); }
+
+.cd-timeline-navigation a.next {
+  right: 0; }
+
+.no-touch .cd-timeline-navigation a:hover {
+  border-color: #7b9d6f; }
+
+.cd-timeline-navigation a.inactive {
+  cursor: not-allowed; }
+
+.cd-timeline-navigation a.inactive::after {
+  background-position: 0 -16px; }
+
+.no-touch .cd-timeline-navigation a.inactive:hover {
+  border-color: #dfdfdf; }
+
+.cd-horizontal-timeeeeline .events-content {
+  position: relative;
+  width: 100%;
+  margin: 2em 0;
+  overflow: hidden;
+  -webkit-transition: height 0.4s;
+  -moz-transition: height 0.4s;
+  transition: height 0.4s; }
+
+.cd-horizontal-timeeeeline .events-content li {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+  padding: 0 5%;
+  opacity: 0;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out; }
+
+.cd-horizontal-timeeeeline .events-content li.selected {
+  /* visible event content */
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0); }
+
+.cd-horizontal-timeeeeline .events-content li.enter-right, .cd-horizontal-timeeeeline .events-content li.leave-right {
+  -webkit-animation-name: cd-enter-right;
+  -moz-animation-name: cd-enter-right;
+  animation-name: cd-enter-right; }
+
+.cd-horizontal-timeeeeline .events-content li.enter-left, .cd-horizontal-timeeeeline .events-content li.leave-left {
+  -webkit-animation-name: cd-enter-left;
+  -moz-animation-name: cd-enter-left;
+  animation-name: cd-enter-left; }
+
+.cd-horizontal-timeeeeline .events-content li.leave-right, .cd-horizontal-timeeeeline .events-content li.leave-left {
+  -webkit-animation-direction: reverse;
+  -moz-animation-direction: reverse;
+  animation-direction: reverse; }
+
+.cd-horizontal-timeeeeline .events-content li > * {
+  max-width: 800px;
+  margin: 0 auto; }
+
+.cd-horizontal-timeeeeline .events-content h2 {
+  font-weight: bold;
+  font-size: 2.6rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 1.2; }
+
+.cd-horizontal-timeeeeline .events-content em {
+  display: block;
+  font-style: italic;
+  margin: 10px auto; }
+
+.cd-horizontal-timeeeeline .events-content em::before {
+  content: '- '; }
+
+.cd-horizontal-timeeeeline .events-content p {
+  font-size: 1.4rem;
+  color: #959595; }
+
+.cd-horizontal-timeeeeline .events-content em, .cd-horizontal-timeeeeline .events-content p {
+  line-height: 1.6; }
+
+@media only screen and (min-width: 768px) {
+  .cd-horizontal-timeeeeline .events-content h2 {
+    font-size: 7rem; }
+  .cd-horizontal-timeeeeline .events-content em {
+    font-size: 2rem; }
+  .cd-horizontal-timeeeeline .events-content p {
+    font-size: 1.8rem; } }
+
+@-webkit-keyframes cd-enter-right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%); } }
+
+@-moz-keyframes cd-enter-right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(100%); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0%); } }
+
+@keyframes cd-enter-right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%); } }
+
+@-webkit-keyframes cd-enter-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%); } }
+
+@-moz-keyframes cd-enter-left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100%); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0%); } }
+
+@keyframes cd-enter-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%); } }
+
+.chap-each {
+  width: 360px; }
+  .chap-each .chap-img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px; }
+
+.chapscroll {
+  height: auto;
+  margin-left: 70px;
+  padding: 40px;
+  display: inline-block; }
+
+.hideme {
+  opacity: 0.2; }
+
+.darkbg {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white; }
+
+.lightbg {
+  background-color: white;
+  color: #050505; }
+
+.delayfadein {
+  opacity: 0.001;
+  transition: opacity 5.5s 5.5s;
+  -moz-transition: opacity 5.5s 5.5s;
+  -webkit-transition: opacity 5.5s 5.5s;
+  -o-transition: opacity 5.5s 5.5s;
+  -ms-transition: opacity 5.5s 5.5s;
+  -khtml-transition: opacity 5.5s 5.5s; }
+
+.drop-shadow {
+  filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.7)); }
+
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+html, button, input, select, textarea {
+  color: #222; }
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 20000;
+  opacity: 0; }
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20000; }
+
+.landscape {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-color: black;
+  background-size: cover; }
+
+.observe-pos {
+  position: absolute;
+  float: right;
+  margin-bottom: 13vh;
+  margin-left: 48vw;
+  z-index: 9000;
+  font-size: 100%; }
+
+.st2 {
+  fill: url(#XMLID_2_); }
+
+.tube {
+  position: absolute;
+  -webkit-transform-origin: 50% 870%;
+  transform-origin: 50% 870%;
+  margin: 0 auto;
+  width: 4%;
+  height: 1%;
+  padding-bottom: 1.5%;
+  top: 40.7%;
+  left: 76.1%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#777), color-stop(15%, #999), color-stop(30%, #a0a0a0), color-stop(50%, #aaa), color-stop(70%, #a0a0a0), color-stop(85%, #999), to(#777));
+  background-image: -webkit-linear-gradient(left, #777, #999 15%, #a0a0a0 30%, #aaa 50%, #a0a0a0 70%, #999 85%, #777);
+  background-image: linear-gradient(to right, #777, #999 15%, #a0a0a0 30%, #aaa 50%, #a0a0a0 70%, #999 85%, #777);
+  border-radius: 50%;
+  z-index: -1;
+  -webkit-transform: rotateZ(30deg) rotateX(-20deg) translateY(210%);
+  transform: rotateZ(30deg) rotateX(-20deg) translateY(210%); }
+
+.tube::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#777), color-stop(15%, #999), color-stop(30%, #a0a0a0), color-stop(50%, #aaa), color-stop(70%, #a0a0a0), color-stop(85%, #999), to(#777));
+  background-image: -webkit-linear-gradient(left, #777, #999 15%, #a0a0a0 30%, #aaa 50%, #a0a0a0 70%, #999 85%, #777);
+  background-image: linear-gradient(to right, #777, #999 15%, #a0a0a0 30%, #aaa 50%, #a0a0a0 70%, #999 85%, #777); }
+
+.tube::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#777), color-stop(15%, #999), color-stop(30%, #a0a0a0), color-stop(50%, #aaa), color-stop(70%, #a0a0a0), color-stop(85%, #999), to(#777));
+  background-image: -webkit-linear-gradient(left, #777, #999 15%, #a0a0a0 30%, #aaa 50%, #a0a0a0 70%, #999 85%, #777);
+  background-image: linear-gradient(to right, #777, #999 15%, #a0a0a0 30%, #aaa 50%, #a0a0a0 70%, #999 85%, #777); }

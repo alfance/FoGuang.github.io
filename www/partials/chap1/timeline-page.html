@@ -1,0 +1,13 @@
+<div ng-repeat="product in eventorder.products | orderBy:'-date'">
+  <h3 ng-include="'timeline-page.html'"></h3>
+  <h1>{{product.title}}</h1>
+  <h2>{{product.date}}</h2>
+  <p>{{product.description | limitTo: 150}}</p>
+<!-- Image gallery -->
+<div class="gallery" ng-show="product.images.length">
+  <ul class="clearfix">
+    <li class="small-image pull-left thumbnail" ng-repeat="image in product.images"> <img ng-src="{{image}}" /> </li>
+  </ul>
+  </div>
+</ul>
+</div>

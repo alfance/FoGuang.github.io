@@ -1,0 +1,29 @@
+.hideme
+{
+    opacity:0.2;
+}
+
+//variables with more value
+.darkbg {
+  background-color:rgba(black, 0.5);
+  color:white;
+}
+
+.lightbg{
+  background-color: white;
+  color:$color-black;
+}
+
+.delayfadein {
+opacity: 0.001;
+transition: opacity 5.5s 5.5s;
+-moz-transition: opacity 5.5s 5.5s;
+-webkit-transition: opacity 5.5s 5.5s;
+-o-transition: opacity 5.5s 5.5s;
+-ms-transition: opacity 5.5s 5.5s;
+-khtml-transition: opacity 5.5s 5.5s;
+}
+
+.drop-shadow{
+  filter: drop-shadow(8px 8px 10px rgba(0,0,0,.7));
+}
