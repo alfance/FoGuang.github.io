@@ -28,11 +28,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
     controller: 'Chap2Controller'
   }).
 
-  //chapter 2 timeline page
-  when('/details/:itemId',{
-    templateUrl:'partials/details.html',
-    controller:'DetailsController'
-  }).
+  //chapter 2 details
+when('/details/:itemId',{
+   templateUrl:'partials/details.html',
+   controller:'DetailsController'
+ }).
 
   //default page
   otherwise({
@@ -46,20 +46,25 @@ var timelineControllers = angular.module('timelineControllers', []);
 timelineControllers.controller('timelineController', ['$scope', '$http', function($scope, $http) {
   $http.get('source/timeline.json').success(function(data) {
     $scope.events = data;
-    // document.body.style.width = '2300px';
+    $scope.letterLimit = 80;
+    document.body.style.width = '3400px';
   });
 }]);
 
 //chapter 2 scroll
 timelineControllers.controller('Chap2Controller', ['$scope', '$http', function($scope, $http) {
-  $http.get('source/chap2_scroll.json').success(function(data) {
+  $http.get('source/chap2-scroll.json').success(function(data) {
     $scope.events = data;
-    document.body.style.width = '2100px';
+    $scope.letterLimit = 100;
+    $scope.animationsEnabled = true;
+    document.body.style.width = '7700px';
+
   });
 }]);
 
-timelineControllers.controller('DetailsController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-  $http.get('source/chap2_scroll.json').success(function(data) {
+//details controller
+timelineControllers.controller('DetailsController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams, $element) {
+  $http.get('source/chap2-scroll.json').success(function(data) {
     $scope.events = data;
     $scope.whichItem = $routeParams.itemId;
 
@@ -74,30 +79,18 @@ timelineControllers.controller('DetailsController', ['$scope', '$http', '$routeP
       $scope.nextItem = 0;
     }
 
+    var myaudio = $('#audio1_1');
+    $('.audio1_1').css("border","3px solid yellow");
+    console.log('document', myaudio);
+    document.getElementById('audio1_1').addEventListener('ended',myHandler,false);
+       function myHandler(e) {
+         alert('ended');
+           // What you want to do after the event
+       }
+
+     function endaudio() {
+       window.location.href="#/details/1";
+     }
+
   });
 }]);
-
-
-setInterval(function() {
-  $(".ddd").velocity("callout.shake");
-}, 4000);
-
-
-//timecard fade in on scroll animation
-    /* Every time the window is scrolled ... */
-    $(window).scroll( function(){
-
-        /* Check the location of each desired element */
-        $('.hideme').each( function(i){
-            var right_of_object = $(this).offset().left + $(this).outerWidth();
-            var right_of_window = $(window).scrollLeft() + $(window).width();
-            /* If the object is completely visible in the window, fade it it */
-            if(right_of_object < 1200){
-              $(this).velocity({'opacity':'1'},100);
-            }
-            else if( right_of_window > right_of_object ){
-
-                $(this).velocity({'opacity':'1', 'margin-left':'50px'},800);
-            }
-        });
-    });

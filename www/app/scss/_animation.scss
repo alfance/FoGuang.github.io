@@ -1,8 +1,19 @@
 .hideme
 {
-    opacity:0.2;
+  opacity: 0;
 }
 
+.hideme:first-child {
+  opacity:1;
+}
+
+.hideme:nth-child(2) {
+  opacity:0.5;
+}
+
+.hideme:nth-child(3) {
+  opacity:0.2;
+}
 //variables with more value
 .darkbg {
   background-color:rgba(black, 0.5);
@@ -26,4 +37,110 @@ transition: opacity 5.5s 5.5s;
 
 .drop-shadow{
   filter: drop-shadow(8px 8px 10px rgba(0,0,0,.7));
+}
+
+/*    */
+/*  the delay animation
+/*  */
+.css-delay{
+    -webkit-transition-delay: 2s; /* Safari */
+    transition-delay: 2s;
+}
+/*    */
+/*  the fading animation
+/*  */
+
+.fade-in {
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+//attribute to addin the effect, dependent with above slideup
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*    */
+/*  the slide up animation
+/*  */
+
+.slide-up {
+  animation: slideup 2s;
+  -moz-animation: slideup 2s; /* Firefox */
+  -webkit-animation: slideup 2s; /* Safari and Chrome */
+  -o-animation: slideup 2s; /* Opera */
+}
+//attribute to addin the effect, dependent with above slideup
+@keyframes slideup {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes slideup { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes slideup { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes slideup { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*    */
+/*  //display one word at a time
+/*  */
+.word-delay{
+}
+.hide
+{
+    display:none;
 }

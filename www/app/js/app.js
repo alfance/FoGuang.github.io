@@ -28,11 +28,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
     controller: 'Chap2Controller'
   }).
 
-  //chapter 2 timeline page
-  when('/details/:itemId',{
-    templateUrl:'partials/details.html',
-    controller:'DetailsController'
-  }).
+  //chapter 2 details
+when('/details/:itemId',{
+   templateUrl:'partials/details.html',
+   controller:'DetailsController'
+ }).
 
   //default page
   otherwise({

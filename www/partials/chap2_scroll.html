@@ -1,12 +1,24 @@
-<section class="timelinepage">
-  <ul class="timelinelist">
-    <li class="chap-each chapscroll hideme" ng-repeat="item in events | filter: query | orderBy: date">
+<section class="scroll-page">
+  <div class ="scene-title">
+    <div class ="scene-title-box">
+      <h3>第二章</h3>
+      <h1 class="scene-title-lgword">梁思成｜發現佛光寺</h1>
+  </div>
+  </div>
+  <ul class="scroll-list">
+    <li class="scroll-each hori-scroll hideme" ng-repeat="item in events | orderBy: date">
 
         <h2>{{item.title}}</h2>
         <h3>{{item.era}}</h3>
-        <h3>{{item.description}}</h3>
-        <img class="time-img" ng-src="img/full/{{events[whichItem].paragraph}}.jpg" alt="Photo of {{events[whichItem].title}}">
-        <a href="#/details/{{events.indexOf(item)}}"> <button>See More</button></a>
+        <p>{{item.description | limitTo:letterLimit}}</p>
+        <p>{{item.details | limitTo:letterLimit}} ...</p>
+
+      <a href="#/details/{{events.indexOf(item)}}">  <button type="button" class="btn btn-default" ng-click="open('lg')">Open me!</button></a>
+
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Full Content</button> -->
     </li>
   </ul>
 </section>
+
+  </div>
+</div>

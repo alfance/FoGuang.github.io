@@ -1,15 +1,23 @@
-.chap-each {
-  width:360px;
-  .chap-img{
-    max-width: 100%;
-    height:auto;
-    margin-top:30px;
-  }
+.scroll-page{
+  width:auto;
+  overflow-x: visible;
+}
+.scroll-list{
+margin-left: 150px;
+}
+.scroll-each {
+  width:30vw;
+  min-width: 300px;
+  height:700px;
+  background-color: rgba(255,255,255,0.2);
+  margin:0px 50px auto 50px;
+  padding:40px;
+  overflow: hidden;
 }
 
-.chapscroll {
-height: auto;
-margin-left: 70px;
-padding: 40px;
-display: inline-block;
+.scroll-each::before{
+}
+.scroll-img{
+  max-width: 100%;
+  height:auto;
 }

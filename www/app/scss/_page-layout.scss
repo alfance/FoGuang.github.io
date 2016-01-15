@@ -4,11 +4,31 @@ $color-orange: #FF8500;
 $color-yellow: #F28500;
 $color-blue: #7CD0FF;
 $color-black: #050505;
+$color-paper: #DED8D4;
+$color-grey:#606060;
 
-html, body {
+html {
+  background-color: $color-paper;
+}
+
+body {
   height:100vh;
   max-height: 100vh;
   overflow-y: hidden;
+  overflow-x:scroll;
+  @extend .fadein;
+}
+
+body::after {
+  background: url("../../img/layout/slide-bg.png");
+  content: "";
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 a {
@@ -16,29 +36,39 @@ a {
 }
 
 .hori-scroll {
-height: 100vh;
-border: 2px solid;
-margin: 30px;
-padding: 30px;
 display: inline-block;
+}
+
+.black-bg{
+     background-color: rgba(0, 0, 0, .4);
+}
+
+.active {
+  background-color: $color-orange;
 }
 
 /* FONT PATH
  * -------------------------- */
- @font-face {
-     font-family: 'contentFont';
-     src: local('contentFont.otf'),
-           url('../../source/font/contentFont.otf');
-     src: local('contentFont.ttf'),
-     url('../../source/font/contentFont.ttf') format('truetype'); /* Safari, Android, iOS */
+ // @font-face {
+ //     font-family: 'contentFont';
+ //     src: local('contentFont.otf'),
+ //           url('../../source/font/contentFont.otf');
+ //     src: local('contentFont.ttf'),
+ //     url('../../source/font/contentFont.ttf') format('truetype'); /* Safari, Android, iOS */
     //  url('/css/fonts/IranSans.woff') format('woff'), /* Modern Browsers */
     //  url('/css/fonts/IranSans.svg') format('svg'); /* Legacy iOS */
- }
-
+ // }
  @font-face {
     font-family: 'titleFont';
-    src: local('titleFont.ttf'),
-    url('../../source/font/titleFont.ttf') format('truetype');
+    src: local('yuweif.woff'),
+    url('../../source/font/yuweif.woff');
+}
+@font-face {
+  font-family: 'contentFont';
+  src: local('contentFont.woff'),
+  url('../../source/font/contentFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -53,32 +83,32 @@ display: inline-block;
    url('../../source/font/fontAwesome.otf');
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: titleFont, 魏碑,Helvetica, Arial, sans-serif;
-
+h1, h2 {
+  font-family: 'titleFont', Helvetica, Arial, sans-serif;
 }
 
-p {
-  font-family: contentFont，魏碑,Helvetica, Arial, sans-serif;
-
+h3, h4, h5, p {
+  font-family: 'contentFont'，Helvetica, Arial, sans-serif;
 }
 
+h3, h4, h5 {
+  font-size: 1.5em;
+}
 /* all chapters introduction page */
-.intro {
+
+.sunrise-intro {
   top: 50%;
-  left: 50%;
+  left: 24%;
   width: auto;
   height: auto;
-  min-width: 50%;
+  max-width: 35%;
   min-height: 50%;
   text-align:center;
    line-height: 2.0em;
    position: fixed;
    -webkit-transform: translateX(-50%) translateY(-50%);
    transform: translateX(-50%) translateY(-50%);
-
 }
-
 
 button, btn {
   border: solid 1px $color-yellow;
@@ -101,8 +131,6 @@ button, btn {
   color:white;
 }
 
-.line{ margin-top: 20%; opacity:0; overflow:hidden;height:20px;}
-
 .logo {
   background: url(img/logo/logos-04.svg) no-repeat top left;
   background-size: contain;
@@ -111,11 +139,51 @@ button, btn {
 }
 
  .logo-property{
-   opacity: 0.9;
+   width:550px;
+   height:230px;
+   max-width: 670px;
     -webkit-filter: drop-shadow(10px 10px 10px #222);
     filter:         drop-shadow(10px 10px 10px #222);
 }
 
 .no-svg .main-header {
   background-image: url(img/logo/logos-04.svg.png);
+}
+
+.scene-title {
+  width: 200px;
+  min-width: 100px;
+  height:100vh;
+  display: inline-block;
+  position: absolute;
+}
+
+.scene-title-box {
+  margin: auto auto auto auto;
+  padding-top:5px;
+  color:$color-paper;
+  background-color: rgba(0, 0, 0, .6);
+  top: 50%;
+  left: 24%;
+  width: auto;
+  height: auto;
+  max-width: 55%;
+  min-height: 95%;
+  text-align:center;
+}
+
+.scene-title-lgword{
+    letter-spacing: 16px;
+    font-size: 2.5em;
+    top: 50%;
+    text-align:center;
+}
+
+.background-mvc{
+  opacity: 0.3;
+  width: 45px;
+  padding-left:20px;
+  position:absolute;
+  top:5vh;
+  left:40px;
 }

@@ -1,29 +1,41 @@
 <!doctype html>
 <html lang="en" ng-app="myApp">
 <head>
-  <link rel="stylesheet" type="text/css" href="simplex/css/simplex.min.css" class="uib-framework-theme">
+  <link rel="stylesheet" type="text/css" href="app/css/main.css">
+
+<!---jquery link ---->
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/velocity.min.js"></script>
+
+<!--angular Link -->
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular/angular-route.min.js"></script>
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+  <script src="lib/ng-scrollable.min.js"></script>
+
+<!--- bootstrap link ---->
+<script data-require="bootstrap@3.0.0-rc2" data-semver="3.0.0-rc2" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
+
+<!--- my own js link -->
+  <script src="dist/js/all.js"></script>
+
   <meta charset="UTF-8">
   <title>Foguang Temple</title>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
   <style>
       /* following three (cascaded) are equivalent to above three meta viewport statements */
-          @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
-          @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+          /*@-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+          @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }*/
           /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
   </style>
 
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" type="text/css" href="app/css/main.css">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
-  <script src="lib/angular/angular.min.js"></script>
-  <script src="lib/angular/angular-route.min.js"></script>
-  <script src="lib/ng-scrollable.min.js"></script>
-  <!-- <script src="app/js/app.js"></script>
-  <script src="app/js/chap1.js"></script> -->
-
 </head>
 <body>
 <div ng-scrollable="{scrollX:'left',scrollY:'none'}" >
@@ -31,11 +43,6 @@
 
 </div>
 </div>
-<script src="lib/jquery.min.js"></script>
-<script src="lib/jquery-2.1.4.js"></script>
-<script src="lib/velocity.min.js"></script>
-<script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
-
-<script src="dist/js/all.js"></script>
+  <script src="dist/js/custom-jquery.js"></script>
 </body>
 </html>

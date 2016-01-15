@@ -6,15 +6,22 @@ var minify = require('gulp-minify');
 var concat = require('gulp-concat');
 
 //js path
-var paths = {
+var paths1 = {
     // using framework version of jquery
     scripts: [
         // 'app/js/jquery.min.js',
         // 'app/js/bootstrap.min.js',
         // 'app/js/angular.min.js',
         'app/js/app.js',
-        'app/js/chap1.js',
+        'app/js/chap1.js'
+    ]
+};
+var paths2 = {
+    // using framework version of jquery
+    scripts: [
         'app/js/animation.js'
+        // 'app/js/modal.js'
+        //the animation for sunrise on intro 1 page is included in its page. not this one here
     ]
 };
 
@@ -26,9 +33,15 @@ gulp.task('sass', function() {
 });
 
 // Concatenate js
-gulp.task('scripts', function() {
-    return gulp.src(paths.scripts)
+gulp.task('scripts1', function() {
+    return gulp.src(paths1.scripts)
       .pipe(concat('all.js'))
+      .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('scripts2', function() {
+    return gulp.src(paths2.scripts)
+      .pipe(concat('custom-jquery.js'))
       .pipe(gulp.dest('dist/js'));
 });
 
@@ -51,13 +64,13 @@ gulp.task('nano', function() {
 
 //gulp watch
 gulp.task('watch', function() {
-    gulp.watch('app/js/*.js', ['scripts']);
+    gulp.watch('app/js/*.js', ['scripts1','scripts2']);
     gulp.watch('app/scss/*.scss', ['sass']);
   });
 
 //gulp default
 gulp.task('default', function (callback) {
-  runSequence(['scripts','sass', 'nano','compress'],
+  runSequence(['sass', 'nano','scripts1','scripts2','compress'],
     callback
   )
 })

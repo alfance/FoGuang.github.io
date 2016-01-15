@@ -6,10 +6,18 @@ video#bgvid {
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
+  z-index: -1;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   background: url(polina.jpg) no-repeat;
   background-size: cover;
   opacity: 1;
+}
+
+.backgroundaudio{
+-webkit-transition: all 3s ease-in-out;
+-moz-transition: all 3s ease-in-out;
+-ms-transition: all 3s ease-in-out;
+-o-transition: all 3s ease-in-out;
+transition: all 3s ease-in-out;
 }

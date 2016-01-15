@@ -1,0 +1,67 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+
+<!-- Small modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+
+<section class="scroll-page">
+  <div class ="scene-title">
+    <div class ="scene-title-box">
+      <h3>第二章</h3>
+      <h1 class="scene-title-lgword">梁思成｜發現佛光寺</h1>
+  </div>
+  </div>
+  <ul class="scroll-list">
+    <li class="scroll-each hori-scroll hideme" ng-repeat="item in events | orderBy: date">
+      <a href="#/details/{{events.indexOf(item)}}">
+        <h2>{{item.title}}</h2>
+        <h3>{{item.era}}</h3>
+        <p>{{item.description | limitTo:letterLimit}}</p>
+        <p>{{item.details | limitTo:letterLimit}} ...</p>
+      </a>
+    </li>
+  </ul>
+</section>
+
+
+
+<div ng-controller="ModalDemoCtrl">
+  <script type="text/ng-template" id="myModalContent.html">
+      <div class="modal-header">
+          <h3 class="modal-title">Im a modal!</h3>
+      </div>
+      <div class="modal-body">
+          <ul>
+              <li ng-repeat="item in items">
+                  <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+              </li>
+          </ul>
+          Selected: <b>{{ selected.item }}</b>
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+          <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+  </script>
+
+  <button type="button" class="btn btn-default" ng-click="open()">Opensdfsdf me!</button>
+  <button type="button" class="btn btn-default" ng-click="open('lg')">Largesdf modal</button>
+  <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
+  <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
+  <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+</div>

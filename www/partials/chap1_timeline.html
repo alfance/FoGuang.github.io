@@ -1,11 +1,38 @@
-<section class="timelinepage">
-  <ul class="timelinelist">
-    <li class="timeline-each hori-scroll hideme" ng-repeat="item in events | filter: query | orderBy: date">
+
+<section class="timeline-page">
+  <div class ="scene-title">
+    <div class ="scene-title-box">
+      <h3>第一章</h3>
+      <h1 class="scene-title-lgword">佛光寺時間史</h1>
+  </div>
+  </div>
+  <ul class="timeline-list">
+    <li class="timeline-each hori-scroll hideme" ng-repeat="item in events | orderBy: date">
       <a href="#/details/{{events.indexOf(item)}}">
         <h2>{{item.title}}</h2>
         <h3>{{item.era}}</h3>
-        <h3>{{item.description}}</h3>
+        <p>{{item.description | limitTo:letterLimit}}</p>
+        <div class="timeline-cover">
+        <img class="timeline-img" ng-src="img/{{item.images[0]}}" alt="Photo of item.title}}">
+        </div>
+        <!-- <audio autoplay="autoplay" controls="controls" class="audio1_1" ng-src="media{{item.audio}}" onended="endaudio()">
+        </audio> -->
       </a>
     </li>
   </ul>
+  <audio autoplay="" controls="" loop="" preload="" class="background-mvc">
+    <source src="media/scene1/bgm/001.mp3" type="audio/mpeg">
+    <source src="media/scene1/bgm/001.ogg" type="audio/ogg">
+    <source src="media/scene1/bgm/001.wav" type="audio/wav">
+   Your browser does not support the audio element.
+  </audio>
+
+  <div class ="timeline-line">
+      <div class="timeline-node " ng-repeat="item in events" style="margin-left:{{item.node}}px"><p>{{item.time}}</p></div>
+      <!-- <div class="timeline-node node2"><p>499</p></div>
+      <div class="timeline-node node3"><p>845</p></div>
+      <div class="timeline-node node4"><p>1937</p></div>
+      <div class="timeline-node node5"><p>1962</p></div>
+      <div class="timeline-node node6"><p>2009</p></div> -->
+  </div>
 </section>

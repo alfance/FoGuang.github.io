@@ -1,11 +1,28 @@
-<section class ="detail-info">
+<section>
   <div class="details" ng-model="events">
     <a href="#/details/{{prevItem}}" class="btn btn-default">Previous</a>
     <a href="#/details/{{nextItem}}" class="btn btn-default">Next </a>
+    <br>
+
     <h1>{{events[whichItem].title}}</h1>
+    <audio autoplay="autoplay" controls="controls" class="audio1_1" ng-src="{{events[whichItem].audio}}" onended="endaudio()">
+    </audio>
+
+    <div audio options="options" />
     <dv class="info">
-      <h3>{{events[whichItem].era}}</h3>
-      <img ng-src="images/{{events[whichItem].title}}_tn.jpg" alt="Photo of {{events[whichItem].title}}">
+      <h3>{{events[whichItem].description}}</h3>
+        <p>{{events[whichItem].details }}</p>
+      <img ng-src="img/{{events[whichItem].images[0]}}" alt="Photo of {{events[whichItem].title}}">
+
+      <!-- <video autoplay="autoplay" controls="controls" class="video1_1" ng-src=" {{events[whichItem].images}}">
+      </video> -->
+
   </div>
   <a href="#/chap2">&laquo; Back </a>
+</div>
 </section>
+<script>
+function endaudio() {
+  window.location.href="#/details/{{nextItem}}";
+}
+</script>
